@@ -11,6 +11,4 @@ router.post('/login', (req, res, next) => {
     userService.loginUser(req, res, next);
 });
 
-
-
 module.exports = router;
