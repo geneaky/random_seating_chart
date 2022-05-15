@@ -5,8 +5,7 @@ const httpError = require('http-errors');
 const registerUser = async (req, res, next) => {
 
     let existedUser = await User.find({
-        account_id: req.body.account_id,
-        account_pwd: hashPassword(req.body.account_pwd)
+        name: req.body.data
     }).exec();
 
     if(existedUser) {
@@ -14,21 +13,14 @@ const registerUser = async (req, res, next) => {
     }
 
     await User.create({
-        account_id: req.body.account_id,
-        account_pwd: hashPassword(req.body.account_pwd),
-        nickname: req.body.nickname
+        name: req.body.data
     })
-}
-
-const hashPassword = (password) => {
-    return crypto.createHash('sha256').update(password).digest('base64');
 }
 
 const loginUser = async (req, res, next) => {
 
     let user = await User.find({
-        account_id: req.body.account_id,
-        account_pwd: hashPassword(req.body.account_pwd)
+        name: req.body.name
     }).exec();
 
     if(user) {

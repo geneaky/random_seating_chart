@@ -6,7 +6,9 @@ const Main = () => {
     const [loginInfo, setLoginInfo] = useState();
 
     const register = () => {
-        axios.post('http://localhost/8080/use/register',{data : registerInfo} ,null, null);
+        axios.post('/users/register',{ data : registerInfo}).then((result)=>{
+            console.log(result);
+        })
     }
 
     const login = () => {
