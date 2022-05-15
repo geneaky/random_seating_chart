@@ -1,28 +1,16 @@
-import { Route, Routes } from 'react-router-dom';
-import AuthPage from "./pages/AuthPage";
-import MainPage from "./pages/MainPage";
-import {useEffect} from "react";
-import {useNavigate} from "react-router";
-import {BrowserRouter} from "react-router-dom";
-
+import {BrowserRouter as Router,Routes, Route} from "react-router-dom";
+import React from 'react';
+import Auth from "./page/Auth";
+import Main from "./page/Main";
 
 function App() {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        navigate('/auth');
-    },[]);
-
   return (
-      <>
-      <BrowserRouter>
-        <p>hi</p>
+      <Router>
         <Routes>
-            <Route path={'/auth'} exact={true} component={AuthPage}/>
-            <Route path={'/main'} exact={true} component={MainPage}/>
+            <Route path='/' exact={true} element={<Auth/>}/>
+            <Route path='/main' exact={true} element={<Main/>}/>
         </Routes>
-      </BrowserRouter>
-      </>
+      </Router>
   );
 }
 
