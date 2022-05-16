@@ -4,7 +4,6 @@ import {
   generateTable,
   changeRows,
   changeColumns,
-  changeSeatPerTable
 } from '../actions/appActions';
 
 class RowsAndColumnsSelector extends React.Component {
@@ -33,15 +32,6 @@ class RowsAndColumnsSelector extends React.Component {
           this.props.names
         );
         this.props.changeRows(parseInt(value, 10));
-        break;
-      case 'seatsPerTable':
-        this.props.generateTable(
-          value,
-          'rows',
-          this.props.rows,
-          this.props.names
-        );
-        this.props.changeSeatPerTable(parseInt(value, 10));
         break;
       default:
         break;
@@ -102,22 +92,6 @@ class RowsAndColumnsSelector extends React.Component {
                 </label>
               </td>
             </tr>
-            <tr>
-              <td colSpan="2">
-                <label>
-                  Seats Per Table: <br />
-                  <select
-                    name="seatsPerTable"
-                    value={this.props.seatsPerTable}
-                    onChange={this.handleChange}
-                    className="selector"
-                  >
-                    <option value="1">One Seat per Table</option>
-                    <option value="2">Two Seats per Table</option>
-                  </select>
-                </label>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -129,7 +103,6 @@ const mapStateToProps = state => ({
   columns: state.tables.columns,
   rows: state.tables.rows,
   names: state.tables.names,
-  seatsPerTable: state.tables.seatsPerTable
 });
 
 export default connect(
@@ -138,6 +111,5 @@ export default connect(
     generateTable,
     changeRows,
     changeColumns,
-    changeSeatPerTable
   }
 )(RowsAndColumnsSelector);

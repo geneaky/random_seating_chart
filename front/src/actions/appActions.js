@@ -2,7 +2,6 @@ import {
   GENERATE_TABLE,
   CHANGE_ROWS,
   CHANGE_COLUMNS,
-  CHANGE_SEATPERTABLE,
   NAMEFORM_TOGGLE
 } from './types';
 
@@ -75,10 +74,9 @@ export const generateTable = (
 };
 
 export const initFirstStart = () => (dispatch, getState) => {
-  const studentNamesFromLocalStorage = localStorage.getItem('studentNames'); // get student names from localstorage
+  const studentNamesFromLocalStorage = localStorage.getItem('studentNames');
   const { seatsPerTable, rows, names } = getState().tables;
   if (studentNamesFromLocalStorage) {
-    // if student names are found on localstorage, then push them into the app state
     dispatch(
       generateTable(
         seatsPerTable,
@@ -88,16 +86,8 @@ export const initFirstStart = () => (dispatch, getState) => {
       )
     );
   } else {
-    // else, use default namesets
     dispatch(generateTable(seatsPerTable, 'rows', rows, names));
   }
-};
-
-export const changeSeatPerTable = seatPerTable => dispatch => {
-  dispatch({
-    type: CHANGE_SEATPERTABLE,
-    payload: seatPerTable
-  });
 };
 
 export const changeRows = rows => dispatch => {

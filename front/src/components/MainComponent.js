@@ -4,7 +4,6 @@ import {
   generateTable,
   changeRows,
   changeColumns,
-  changeSeatPerTable,
   nameformToggle,
   initFirstStart
 } from '../actions/appActions';
@@ -45,7 +44,6 @@ export default connect(
     generateTable,
     changeRows,
     changeColumns,
-    changeSeatPerTable,
     nameformToggle,
     initFirstStart
   }

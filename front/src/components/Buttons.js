@@ -35,13 +35,13 @@ class Buttons extends React.Component {
     return (
       <div className="button-container">
         <button name="gen" onClick={this.handleClick}>
-          Generate
+          만들기
         </button>
         <button name="updateName" onClick={this.handleClick}>
-          Student Names
+          초딩 이름
         </button>
         <button name="reset" onClick={this.handleClick}>
-          Reset
+          초기화
         </button>
       </div>
     );
