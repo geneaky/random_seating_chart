@@ -4,12 +4,12 @@ const httpError = require('http-errors');
 
 const registerUser = async (req, res, next) => {
 
-    let existedUser = await User.find({
+    let existedUser = await User.findOne({
         name: req.body.data
     }).exec();
 
     if(existedUser) {
-        return res.status(400).end();
+        return res.status(400).json({ message : 'already existed'});
     }
 
     await User.create({
@@ -20,7 +20,7 @@ const registerUser = async (req, res, next) => {
 const loginUser = async (req, res, next) => {
 
     let user = await User.find({
-        name: req.body.name
+        name: req.body.data
     }).exec();
 
     if(user) {

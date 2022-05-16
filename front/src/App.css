@@ -1,0 +1,105 @@
+.App-header {
+  background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  max-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(7px + 2vmin);
+  color: white;
+}
+
+.App-footer {
+  background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(7px + 1.5vmin);
+  height: 40px;
+  color: white;
+}
+
+.App-footer a {
+  color: #ffffff;
+}
+
+.MainComponent {
+  padding: 10px 20px;
+}
+
+.Chair-table {
+  height: 500px;
+  border: 1px solid grey;
+  padding: 1px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
+.Chair-table td {
+  padding: 5px;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+}
+
+.Chair-table table td {
+  border: 1px solid black;
+}
+
+.Chair-table ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* .Rows-and-columns-selector table td {
+  border: 1px solid black;
+} */
+
+.Rows-and-columns-selector td {
+  width: 50%;
+}
+
+.Rows-and-columns-selector table {
+  width: 100%;
+}
+
+.selector {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.button-container button {
+  margin: 0px 5px;
+}
+
+.names-form-container {
+  padding: 15px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 3px 5px 10px rgba(128, 128, 128, 0.411);
+  animation: fade-in-bottom ease 0.4s forwards;
+}
+
+.names-form-container #studentNames{
+  width: 75%;
+}
+
+@keyframes fade-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

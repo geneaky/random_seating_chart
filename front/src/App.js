@@ -1,16 +1,18 @@
-import {BrowserRouter as Router,Routes, Route} from "react-router-dom";
 import React from 'react';
-import Auth from "./page/Auth";
-import Main from "./page/Main";
+import Header from './components/Header';
+import MainComponent from './components/MainComponent';
+import './App.css';
+import store from './store';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-      <Router>
-        <Routes>
-            <Route path='/' exact={true} element={<Auth/>}/>
-            <Route path='/main' exact={true} element={<Main/>}/>
-        </Routes>
-      </Router>
+    <Provider store={store}>
+      <div>
+        <Header />
+        <MainComponent />
+      </div>
+    </Provider>
   );
 }
 
