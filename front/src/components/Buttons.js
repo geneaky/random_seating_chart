@@ -13,7 +13,6 @@ class Buttons extends React.Component {
     switch (name) {
       case 'gen':
         this.props.generateTable(
-          this.props.seatsPerTable,
           'rows',
           this.props.rows,
           this.props.names
@@ -51,7 +50,7 @@ class Buttons extends React.Component {
 const mapStateToProps = state => ({
   rows: state.tables.rows,
   names: state.tables.names,
-  seatsPerTable: state.tables.seatsPerTable
+  // seatsPerTable: state.tables.seatsPerTable
 });
 
 export default connect(

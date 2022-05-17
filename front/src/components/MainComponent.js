@@ -35,7 +35,6 @@ const mapStateToProps = state => ({
   tableData: state.tables.tableData,
   names: state.tables.names,
   isNamesFormShown: state.tables.isNamesFormShown,
-  seatsPerTable: state.tables.seatsPerTable
 });
 
 export default connect(

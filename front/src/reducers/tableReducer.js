@@ -13,7 +13,6 @@ const initialState = {
   tableData: [],
   names: ['Putu', 'Budi', 'Dora', 'Ahmad', 'Santoso'],
   isNamesFormShown: false,
-  seatsPerTable: localStorage.getItem('seatsPerTable')
 };
 
 export default function(state = initialState, action) {

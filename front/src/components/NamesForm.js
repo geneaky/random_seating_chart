@@ -14,7 +14,6 @@ class NamesForm extends React.Component {
 
   handleSubmit(event) {
     this.props.generateTable(
-      this.props.seatsPerTable,
       'rows',
       this.props.rows,
       this.state.names.split(', ')
@@ -37,7 +36,6 @@ class NamesForm extends React.Component {
             type="text"
             value={this.state.names}
             onChange={this.handleChange}
-            placeholder="Input student names here (e.g. Jojo, Lili, Bibi)"
           />
           <input type="submit" value="입력" />
         </form>
@@ -48,7 +46,6 @@ class NamesForm extends React.Component {
 
 const mapStateToProps = state => ({
   rows: state.tables.rows,
-  seatsPerTable: state.tables.seatsPerTable,
   names: state.tables.names
 });
 

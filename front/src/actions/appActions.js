@@ -6,7 +6,6 @@ import {
 } from './types';
 
 export const generateTable = (
-  seatsPerTable,
   rows_or_columns,
   value,
   studentNames
@@ -21,23 +20,19 @@ export const generateTable = (
 
       for (let j = 0; j < getState().tables.columns; j++) {
         arr[i].columns[j] = [];
+        let idx;
 
-        for (let k = 0; k < seatsPerTable; k++) {
-          let idx;
-
-          do {
-            idx = Math.floor(Math.random() * studentNames.length);
-          } while (
+        do {
+          idx = Math.floor(Math.random() * studentNames.length);
+        } while (
             n_namesAssigned < studentNames.length &&
-            nameIdxAssigned[idx] === 'true'
-          );
+            nameIdxAssigned[idx] === 'true');
 
-          if (n_namesAssigned < studentNames.length) {
-            arr[i].columns[j][k] = studentNames[idx];
-            nameIdxAssigned[idx] = 'true';
-            n_namesAssigned++;
-          } else arr[i].columns[j][k] = undefined;
-        }
+        if (n_namesAssigned < studentNames.length) {
+          arr[i].columns[j][0] = studentNames[idx];
+          nameIdxAssigned[idx] = 'true';
+          n_namesAssigned++;
+        } else arr[i].columns[j][0] = undefined;
       }
     }
   } else if (rows_or_columns === 'columns') {
@@ -47,22 +42,19 @@ export const generateTable = (
       for (let j = 0; j < value; j++) {
         arr[i].columns[j] = [];
 
-        for (let k = 0; k < seatsPerTable; k++) {
-          let idx;
+        let idx;
 
-          do {
+        do {
             idx = Math.floor(Math.random() * studentNames.length);
-          } while (
+        } while (
             n_namesAssigned < studentNames.length &&
-            nameIdxAssigned[idx] === 'true'
-          );
+            nameIdxAssigned[idx] === 'true');
 
-          if (n_namesAssigned < studentNames.length) {
-            arr[i].columns[j][k] = studentNames[idx];
-            nameIdxAssigned[idx] = 'true';
-            n_namesAssigned++;
-          } else arr[i].columns[j][k] = undefined;
-        }
+        if (n_namesAssigned < studentNames.length) {
+          arr[i].columns[j][0] = studentNames[idx];
+          nameIdxAssigned[idx] = 'true';
+          n_namesAssigned++;
+        } else arr[i].columns[j][0] = undefined;
       }
     }
   }
@@ -75,18 +67,17 @@ export const generateTable = (
 
 export const initFirstStart = () => (dispatch, getState) => {
   const studentNamesFromLocalStorage = localStorage.getItem('studentNames');
-  const { seatsPerTable, rows, names } = getState().tables;
+  const { rows, names } = getState().tables;
   if (studentNamesFromLocalStorage) {
     dispatch(
       generateTable(
-        seatsPerTable,
         'rows',
         rows,
         studentNamesFromLocalStorage.split(',')
       )
     );
   } else {
-    dispatch(generateTable(seatsPerTable, 'rows', rows, names));
+    dispatch(generateTable('rows', rows, names));
   }
 };
 
