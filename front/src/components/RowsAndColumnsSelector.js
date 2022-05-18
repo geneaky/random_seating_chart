@@ -17,7 +17,6 @@ class RowsAndColumnsSelector extends React.Component {
     switch (name) {
       case 'columns':
         this.props.generateTable(
-          this.props.seatsPerTable,
           name,
           value,
           this.props.names
@@ -26,7 +25,6 @@ class RowsAndColumnsSelector extends React.Component {
         break;
       case 'rows':
         this.props.generateTable(
-          this.props.seatsPerTable,
           name,
           value,
           this.props.names

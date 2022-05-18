@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { generateTable, nameformToggle } from '../actions/appActions';
+import axios from "axios";
 
 class Buttons extends React.Component {
   constructor(props) {
@@ -22,6 +23,9 @@ class Buttons extends React.Component {
         this.props.nameformToggle();
         break;
       case 'reset':
+        (async() => {
+          await axios.delete('/users')
+        })();
         localStorage.clear();
         window.location.reload();
         break;
@@ -50,7 +54,6 @@ class Buttons extends React.Component {
 const mapStateToProps = state => ({
   rows: state.tables.rows,
   names: state.tables.names,
-  // seatsPerTable: state.tables.seatsPerTable
 });
 
 export default connect(

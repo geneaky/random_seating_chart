@@ -11,7 +11,7 @@ const initialState = {
     : localStorage.getItem('columns'),
   rows: !localStorage.getItem('rows') ? 5 : localStorage.getItem('rows'),
   tableData: [],
-  names: ['Putu', 'Budi', 'Dora', 'Ahmad', 'Santoso'],
+  names: ['주창륜', '사용자1', '사용자2', '사용자3', '사용자4'],
   isNamesFormShown: false,
 };
 
