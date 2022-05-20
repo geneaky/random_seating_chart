@@ -11,6 +11,10 @@ router.post('/login', (req, res, next) => {
     userService.loginUser(req, res, next);
 });
 
+router.put('/nick',(req, res, next) => {
+    userService.updateUser(req,res,next);
+})
+
 router.post('/', (req, res, next) => {
     userService.registeUsers(req, res, next);
 });
