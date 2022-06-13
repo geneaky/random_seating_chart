@@ -41,7 +41,7 @@ class Buttons extends React.Component {
           만들기
         </button>
         <button name="updateName" onClick={this.handleClick}>
-          초딩 이름
+          학생 이름
         </button>
         <button name="reset" onClick={this.handleClick}>
           초기화
