@@ -17,7 +17,8 @@ const registerUser = async (req, res, next) => {
     await User.create({
         id: req.body.data.id,
         pwd: req.body.data.pwd,
-        nick: req.body.data.nick
+        nick: req.body.data.nick,
+        status: 'teacher'
     })
 }
 
@@ -36,14 +37,18 @@ const loginUser = async (req, res, next) => {
 }
 
 const registeUsers = async (req, res, next) => {
+    console.log('호출');
     let data = req.body.data.split(', ');
+    console.log(data);
     for(let i = 0 ; i < data.length; i++) {
-        let user = await User.find({ name : data[i]}).exec();
-        if(user.length != 0) {
+        let user = await User.findOne({ name : data[i]});
+        console.log(user);
+        if(user) {
             continue;
         } else {
             await User.create({
-                name: data[i]
+                name: data[i],
+                status: "student"
             });
         }
     }
@@ -52,7 +57,9 @@ const registeUsers = async (req, res, next) => {
 }
 
 const resetUsers = async(req, res, next) => {
-    await User.deleteMany().then(() => {
+    await User.deleteMany({
+        status : 'student'
+    }).then(() => {
         res.status(200).end();
     })
 }

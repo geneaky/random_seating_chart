@@ -32,6 +32,7 @@ class NamesForm extends React.Component {
     this.handleSubmit(e);
 
     await axios.post('/users',{ data: this.state.names}).then(async () => {
+      console.log('hi');
       await axios.get('/users').then((res) => {
 
         let names = [];
